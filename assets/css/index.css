@@ -1,0 +1,284 @@
+/* Make padding grow inwards, not outwards */
+* {
+	box-sizing: border-box;
+}
+
+/* Body */
+body {
+	
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+	background: url(../img/backgrounds/background.jpg);
+	background-size: cover;
+	background-origin: center;
+	background-attachment: fixed;
+
+	/* Compensate for header */
+	padding-top: 41px;
+
+}
+
+/* Making the headings not bold */
+h1, h2, h3, h4, h5, h6 {
+	font-weight: lighter;
+}
+
+/* Make links less ugly */
+a {
+	color: #744210;
+	text-decoration: none;
+	border: none;
+	border-bottom: 1px transparent solid;
+	transition: border .2s;
+}
+
+/* Put an outward arrow on external links */
+a[target="_blank"]::after {
+	font-family: "FontAwesome";
+	content: " \f08e";
+}
+
+/* Make the underline show when the user hovers over the link */
+a:hover {
+	border-bottom-color: #744210;
+}
+
+/* Computer Code */
+code, samp, kbd, pre {
+	font-family: "Roboto Mono", monospace;
+	font-size: 12px;
+	padding: 7px;
+	background: #212121;
+	color: #F5F5F5;
+	box-shadow: inset 0 0 10 rgba(0,0,0,.5);
+	border-radius: 4px;
+	display: inline-block;
+}
+
+/* Blockquotes */
+blockquote {
+	font-family: "Roboto Slab", serif;
+	border-left: 5px #df8534 solid;
+	margin-left: 0;
+	padding-left: 40px;
+}
+
+blockquote > q {
+	font-size: 1.75em;
+}
+
+blockquote > footer {
+	font-size: 14px;
+	font-family: "Roboto", sans-serif;
+	color: gray;
+}
+
+blockquote > footer::before {
+	content: "— ";
+
+}
+
+/* Core button styling */
+.btn {
+	background: #DDD;
+	color: black;
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	display: inline-block;
+	transition: box-shadow .2s, background .2s, color .2s;
+}
+
+.btn:hover {
+	background: #B76819 ! important;
+	color: white;
+}
+
+.btn:active {
+	background: #744210 ! important;
+	color: white;
+	box-shadow: 0 0 4px rgba(0,0,0,.5);
+}
+
+/* Varaible-width container for making RWD easier */
+.container {
+	width: 65%;
+	min-width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1024px;
+}
+
+/* Cards. The theme-centric object */
+.card {
+	background: #F5F5F5;
+	color: black;
+	border-radius: 4px;
+	box-shadow: 0 0 4px rgba(0,0,0,.5);
+	margin: 4px;
+}
+
+.card.card-borderless {
+	margin: 0;
+}
+
+/* Navigation bar */
+nav[data-purpose="navigation"] {
+	position: fixed;
+	display: block;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+}
+
+nav > div.card {
+	font-size: 0; /* Make the font size 0 here to get rid of the spaces between links */
+}
+
+/* Navigation bar button */
+nav > div.card a.btn {
+	display: inline-block;
+	padding: 10px;
+	font-size: 14px;
+	border: none;
+	border-radius: 0;
+	background: transparent;
+}
+
+/* Right section */
+nav div.right {
+	float: right;
+}
+
+/*.card[data-purpose="navigation"] a.btn:hover {
+	background: 
+}*/
+
+input {
+	font: inherit;
+}
+
+input.card /*[type=text]*/ {
+	border: none;
+	padding: 10px;
+}
+
+.display-block {
+	display: block;
+}
+
+.width-full {
+	width: 100%;
+}
+
+.splash-padding {
+	margin: 250px auto;
+}
+
+/* Responsive columns */
+.row {
+	
+}
+
+.row::after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+.row [class*="split-"] {
+	float: left;
+	padding: 1px;
+}
+
+.row [class*="split-"].card {
+}
+
+.split-half {
+	width: 50%;
+}
+
+.split-third {
+	width: 33.3333%;
+}
+
+.split-quarter {
+	width: 25%;
+}
+
+.split-two-thirds {
+	width: 66.6666%;
+}
+
+.split-three-quarters {
+	width: 75%;
+}
+
+@media only screen and (max-width: 768px)
+{
+	.row [class*="split-"]
+	{
+		width: 100%;
+	}
+}
+
+/* Page-list */
+.page-list {
+	overflow: hidden;
+	font-size: 0;
+	height: 200px;
+}
+
+.page-list.top {
+	height: 250px;
+	overflow: hidden;
+	font-size: 0;
+}
+
+.page-list > .header {
+	height: 150px;
+	background: darkgray;
+	background-size: cover;
+	background-origin: center;
+	border-radius: 4px 4px 0 0;
+	position: relative;
+}
+
+.page-list > .header > .shader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,.5);
+}
+
+.page-list > .header .title {
+	position: absolute;
+	color: white;
+	font-size: 17.5px;
+	bottom: 10px;
+	left: 10px;
+}
+
+.page-list > .blurb {
+	padding: 10px;
+	font-size: 14px;
+}
+
+/* Global responsive stuff - wide-only */
+@media only screen and (max-width: 768px)
+{
+	.narrow-only {
+		display: none;
+	}
+}
+
+/* Global responsive stuff - narrow-only */
+@media only screen and (max-width: 768px)
+{
+	.wide-only {
+		display: none;
+	}
+}
